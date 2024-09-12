@@ -38,6 +38,7 @@ input[type="text"] {
   border: 1px solid #cccccc;
   border-radius: 8px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 button {
