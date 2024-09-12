@@ -96,4 +96,5 @@ export function dec2frac(decimalStr) {
     let fractionDenom = denom;
 
     return [integer, fractionNumer, fractionDenom];
+    
 }
