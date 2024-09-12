@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+  //console.log('DOM fully loaded and parsed');
+
   // Function to handle calculation
-  function performCalculation(input) {
-    import('./mathFunctions.js').then(module => {
+  async function performCalculation(input) {
+    try {
+      const module = await import('./mathFunctions.js');
       const result = module.prettyPrintResult(input);
       document.getElementById('resultDisplay').textContent = result;
-    }).catch(err => {
-      console.error('Error importing the module:', err);
-    });
+    } catch (err) {
+      //console.error('Error importing the module:', err);
+    }
   }
 
   // Extract the number from the URL
   const urlParams = new URLSearchParams(window.location.search);
-  const numberFromUrl = urlParams.get('number'); // Get the 'number' query parameter
+  const numberFromUrl = urlParams.get('num'); // Get the 'number' query parameter
   
   if (numberFromUrl) {
     // Set the input value and perform the calculation
