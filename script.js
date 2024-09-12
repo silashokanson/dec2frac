@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     numberInput.addEventListener('input', (event) => {
       const input = event.target.value;
       performCalculation(input);
+      
     });
   }
 });
