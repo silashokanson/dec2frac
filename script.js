@@ -55,8 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Set up the event listener for the input field
-  document.getElementById('numberInput').addEventListener('input', (event) => {
-    const input = event.target.value;
-    performCalculation(input);
-  });
+  const numberInput = document.getElementById('numberInput');
+  if (numberInput) {
+    numberInput.addEventListener('input', (event) => {
+      const input = event.target.value;
+      performCalculation(input);
+    });
+  }
 });
