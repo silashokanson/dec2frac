@@ -2,7 +2,6 @@
 
 export function decimalToFraction(decimalStr) {
     decimalStr = decimalStr.replace(/[^0-9\.\-]/g, '');
-    console.log(decimalStr)
     let sign = decimalStr[0] === '-' ? BigInt(-1) : BigInt(1);
     if (decimalStr[0] === '-') {
         decimalStr = decimalStr.slice(1);
@@ -13,16 +12,13 @@ export function decimalToFraction(decimalStr) {
         : [decimalStr, '0'];
 
     let numerator = BigInt(fractionalPart);
-
     fractionalPart = fractionalPart.replace(/[^0-9]/g, '');
-    console.log(fractionalPart);
     let denominator = BigInt(10) ** BigInt(fractionalPart.length);
 
     if (integerPart !== '0') {
         let integerValue = BigInt(integerPart);
         numerator += integerValue * denominator;
     }
-
     numerator *= sign;
 
     return [numerator, denominator];
@@ -95,7 +91,6 @@ export function dec2frac(decimalStr) {
 
     const [numer, denom] = simplifyFraction(decimalStr);
 
-    // Convert to mixed fraction if needed
     let integer = numer / denom;
     let fractionNumer = numer % denom;
     let fractionDenom = denom;
